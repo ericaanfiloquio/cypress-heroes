@@ -48,6 +48,7 @@ declare global {
       resetDb(): void;
       createHero(): Cypress.Chainable<Prisma.Hero>;
       deleteHero(id: number): void;
+      attachFile(fileName: string): Chainable<Element>;
     }
   }
 }
@@ -87,3 +88,6 @@ Cypress.Commands.add('deleteHero', (id: number) => {
 });
 
 export {};
+
+import 'cypress-file-upload';
+

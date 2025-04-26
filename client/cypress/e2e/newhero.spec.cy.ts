@@ -1,0 +1,40 @@
+describe('New Hero/Avatar', () => {
+    it('Creating New Hero - Sucess', () => {
+      cy.visit('http://localhost:3000/heroes')
+      cy.get('li .undefined').click()
+      cy.get("[type='email']").click().type('admin@test.com')
+      cy.get("[type='password']").click().type('test123')
+      cy.get(".text-white").click()
+      cy.get(".text-gray-500").contains('Logout')
+      cy.get("[href='/heroes/new']").click()
+      cy.get("[name='name'][type='text']").click().type('Harry')
+      cy.get("[name='price'][type='number']").click().type('50')
+      cy.get("[name='fans']").click().type('10')
+      cy.get("[name='saves']").click().type('10')
+      cy.get("[multiple='']").select('7')
+      cy.get('input[type="file"]').attachFile("avatartest.png")
+      cy.get(".text-white").eq(1).click()
+      cy.get(".flex-wrap").contains('Harry')
+    })
+  })
+
+  describe('New Hero/Avatar', () => {
+    it('Creating New Hero - Error', () => {
+      cy.visit('http://localhost:3000/heroes')
+      cy.get('li .undefined').click()
+      cy.get("[type='email']").click().type('admin@test.com')
+      cy.get("[type='password']").click().type('test123')
+      cy.get(".text-white").click()
+      cy.get(".text-gray-500").contains('Logout')
+      cy.get("[href='/heroes/new']").click()
+      cy.get("[name='name'][type='text']").click().type('Harry')
+      cy.get("[name='price'][type='number']").click().type('50')
+      cy.get("[name='fans']").click().type('10')
+      // cy.get("[name='saves']").click().type('10')
+      cy.get("[multiple='']").select('7')
+      cy.get('input[type="file"]').attachFile("avatartest.png")
+      cy.get(".text-white").eq(1).click()
+      cy.get(".text-red-500") // assure the error appears - red text 
+      // skipping some fields to check if the app allows to continue with no information on it
+    })
+  })
