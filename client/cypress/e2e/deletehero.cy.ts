@@ -6,7 +6,7 @@ describe('Delete Hero', () => {
       cy.get("[type='password']").click().type('test123')
       cy.get(".text-white").click()
       cy.get(".text-gray-500").contains('Logout')
-      cy.get("[data-cy='trash']").eq(9).click()
+      cy.get("[data-cy='trash']").eq(4).click()
       cy.get(".justify-end .undefined").eq(0).click()
     })
   })
